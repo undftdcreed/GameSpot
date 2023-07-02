@@ -4,6 +4,7 @@ from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 from .models import Game
 from django.views.generic.edit import CreateView
+from django.views.generic import DetailView
 # Create your views here.
 
 class Home(TemplateView):
@@ -38,7 +39,9 @@ class GameList(TemplateView):
         context["header"] = "Top Shelf Games"
     return context
 
-
+class GameDetail(DetailView):
+   model = Game
+   template_name = "game_detail.html"
 
 games = [
   Game("Monopoly", "https://image.api.playstation.com/cdn/UP0001/CUSA01061_00/CtpS1pOJWwFORlVvtg3CzgFQ260od4RE.png", "A monopoly is an enterprise that is the only seller of a good or service. In the absence of government intervention, a monopoly is free to set any price it chooses and will usually set the price that yields the largest possible profit."),
