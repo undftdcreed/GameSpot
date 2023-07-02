@@ -22,7 +22,13 @@ class GameList(TemplateView):
 
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
-    context["games"] = Game.objects.all()
+    name = self.request.GET.get("name")
+    if name != None:
+        context["games"] = Game.objects.filter(name__icontains=name)
+        context["header"] = f"searching for {name}"
+    else:
+        context["games"] = Game.objects.all()
+        context["header"] = "Top Shelf Games"
     return context
 
 
