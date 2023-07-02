@@ -15,6 +15,7 @@
         <input class="button is-success" type="submit" value="Search" />
       </div>
     </div>
+    <a class="button is-dark" href="{% url 'game_create' %}">Add Board Game</a>
 <div class="gallery">
   {% for game in games %}
   <a href="">
@@ -34,6 +35,7 @@
     <div class="message-header">
       <p>No Games Available</p>
     </div>
+    
   </article>
   {% endfor %}
 </div>

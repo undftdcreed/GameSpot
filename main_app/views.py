@@ -18,6 +18,12 @@ class Games:
     self.image = image
     self.bio = bio
 
+class GameCreate(CreateView):
+   model = Game
+   fields = ['name', 'img', 'bio']
+   template_name = "game_create.html"
+   success_url = "/games/"
+
 class GameList(TemplateView):
   template_name = "game_list.html"
 
@@ -38,8 +44,3 @@ games = [
   Game("Monopoly", "https://image.api.playstation.com/cdn/UP0001/CUSA01061_00/CtpS1pOJWwFORlVvtg3CzgFQ260od4RE.png", "A monopoly is an enterprise that is the only seller of a good or service. In the absence of government intervention, a monopoly is free to set any price it chooses and will usually set the price that yields the largest possible profit."),
 ]
 
-class GameCreate(CreateView):
-   model = Game
-   fields = ['name', 'img', 'bio']
-   template_name = "game_create.html"
-   success_url = "/games/"
