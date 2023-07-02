@@ -6,6 +6,15 @@
 {% block content %}
 
 <h1 class="title pt-5">Top Shelf Games</h1>
+<form class="mb-5" method="get">
+    <div class="field has-addons">
+      <div class="control">
+        <input class="input" type="text" name="name" placeholder="name" />
+      </div>
+      <div class="control">
+        <input class="button is-success" type="submit" value="Search" />
+      </div>
+    </div>
 <div class="gallery">
   {% for game in games %}
   <a href="">

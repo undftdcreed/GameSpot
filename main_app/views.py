@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 from .models import Game
-
 # Create your views here.
 
 class Home(TemplateView):
@@ -11,6 +10,12 @@ class Home(TemplateView):
     
 class About(TemplateView):
   template_name = "about.html"
+
+class Games:
+  def __init__(self, name, image, bio):
+    self.name = name
+    self.image = image
+    self.bio = bio
 
 class GameList(TemplateView):
   template_name = "game_list.html"
@@ -21,11 +26,6 @@ class GameList(TemplateView):
     return context
 
 
-class Game:
-  def __init__(self, name, image, bio):
-    self.name = name
-    self.image = image
-    self.bio = bio
 
 games = [
   Game("Monopoly", "https://image.api.playstation.com/cdn/UP0001/CUSA01061_00/CtpS1pOJWwFORlVvtg3CzgFQ260od4RE.png", "A monopoly is an enterprise that is the only seller of a good or service. In the absence of government intervention, a monopoly is free to set any price it chooses and will usually set the price that yields the largest possible profit."),
