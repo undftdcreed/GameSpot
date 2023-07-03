@@ -3,9 +3,9 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 from .models import Game
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
-
+from django.urls import reverse
 # Create your views here.
 
 class Home(TemplateView):
@@ -24,7 +24,9 @@ class GameCreate(CreateView):
    model = Game
    fields = ['name', 'img', 'bio']
    template_name = "game_create.html"
-   success_url = "/games/"
+
+   def get_success_url(self):
+      return reverse('game_detail', kwargs={'pk': self.object.pk})
 
 class GameList(TemplateView):
   template_name = "game_list.html"
@@ -39,15 +41,26 @@ class GameList(TemplateView):
         context["games"] = Game.objects.all()
         context["header"] = "Top Shelf Games"
     return context
+  
+
 class GameUpdate(UpdateView):
    model = Game
    fields = ['name', 'img', 'bio']
    template_name = "game_update.html"
-   success_url = "/games/"
+
+   def get_success_url(self):
+      return reverse('game_detail', kwargs={'pk': self.object.pk})
 
 class GameDetail(DetailView):
    model = Game
    template_name = "game_detail.html"
+
+
+
+class GameDelete(DeleteView):
+   model = Game
+   template_name = "game_delete_confirmation.html"
+   success_url = "/games/"
 
 
 
