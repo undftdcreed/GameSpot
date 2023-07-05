@@ -81,7 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'game_spot.wsgi.application'
 
-CORS_ALLOWED_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Database
