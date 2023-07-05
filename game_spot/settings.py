@@ -91,7 +91,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'neondb',
@@ -100,7 +100,7 @@ DATABASES = {
     'HOST': os.environ['DB_HOST'],
     'PORT': '5432',
   }
-}
+}'''
 
 DATABASES = {
     'default':  dj_database_url.config(
