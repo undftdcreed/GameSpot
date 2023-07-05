@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'game_spot.wsgi.application'
+WSGI_APPLICATION = 'game_spot.wsgi'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
