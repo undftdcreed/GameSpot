@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'game_spot.wsgi.application'
 
 DATABASES = {
     'default' : dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/boardgames',
+        default='postgresql://undftdcreed:4A7VRLflhIna@localhost:5432/boardgames',
         conn_max_age=600
     )
 }
